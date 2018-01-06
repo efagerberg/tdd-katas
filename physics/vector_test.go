@@ -24,24 +24,25 @@ func TestConstructorReturnsExpectedVector3(t *testing.T) {
 func TestAddReturnsExpectedVector3(t *testing.T) {
 	v1 := Vector3{1.0, 1.0, 1.0}
 	v2 := Vector3{2.0, 1.0, 3.0}
-	v3 := v1.Add(v2)
-	assert.Equal(t, Vector3{3.0, 2.0, 4.0}, v3)
+	expected := Vector3{3.0, 2.0, 4.0}
+	assert.Equal(t, expected, v1.Add(v2))
 }
 
 func TestSubReturnsExpectedVector3(t *testing.T) {
 	v1 := Vector3{1.0, 1.0, 1.0}
 	v2 := Vector3{2.0, 1.0, 3.0}
-	v3 := v1.Sub(v2)
-	assert.Equal(t, Vector3{-1.0, 0.0, -2.0}, v3)
+	expected := Vector3{-1.0, 0.0, -2.0}
+	assert.Equal(t, expected, v1.Sub(v2))
 }
 
 func TestMulReturnsExpectedVector3(t *testing.T) {
-	v := Vector3{1.0, 1.0, 1.0}
-	actual := v.Mul(3.0)
-	assert.Equal(t, Vector3{3.0, 3.0, 3.0}, actual)
+	expected := Vector3{3.0, 3.0, 3.0}
+	actual := Vector3{1.0, 1.0, 1.0}.Mul(3.0)
+	assert.Equal(t, expected, actual)
 
-	actual = actual.Mul(-1.0)
-	assert.Equal(t, Vector3{-3.0, -3.0, -3.0}, actual)
+	expected = Vector3{-1.0, -1.0, -1.0}
+	actual = Vector3{1.0, 1.0, 1.0}.Mul(-1.0)
+	assert.Equal(t, expected, actual)
 }
 
 func TestDivReturnsExpectedVector3(t *testing.T) {
@@ -83,4 +84,18 @@ func TestDotReturnsExpectedFloatValue(t *testing.T) {
 	v1 = Vector3{1, 0, 0}
 	v2 = Vector3{0, 1, 0}
 	assert.Equal(t, 0.0, v1.Dot(v2))
+}
+
+func TestCrossReturnsExpectedVector3(t *testing.T) {
+	v1 := Vector3{1, 0, 0}
+	v2 := Vector3{1, 0, 0}
+	assert.Equal(t, Vector3{0, 0, 0}, v1.Cross(v2))
+
+	v1 = Vector3{1, 2, 3}
+	v2 = Vector3{3, 2, 1}
+	assert.Equal(t, Vector3{-4, 8, -4}, v1.Cross(v2))
+
+	v1 = Vector3{1, -2, 3}
+	v2 = Vector3{-3, 4, 3}
+	assert.Equal(t, Vector3{-18, -12, -2}, v1.Cross(v2))
 }

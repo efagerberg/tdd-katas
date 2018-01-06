@@ -34,3 +34,10 @@ func (s Vector3) Normalize() Vector3 {
 func (s Vector3) Dot(other Vector3) float64 {
 	return s.X*other.X + s.Y*other.Y + s.Z*other.Z
 }
+
+func (s Vector3) Cross(other Vector3) Vector3 {
+	return Vector3{
+		(s.Y*other.Z - s.Z*other.Y),
+		(s.Z*other.X - s.X*other.Z),
+		(s.X*other.Y - s.Y*other.X)}
+}
