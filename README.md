@@ -3,6 +3,6 @@
 ## Python
 
 ```console
-$ cd <kata>
-$ make tests
+$ make install
+$ KATA=<kata> make tests
 ```
