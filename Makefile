@@ -1,5 +1,5 @@
 install:
-	pipenv install
+	pipenv install --dev
 
 test:
 	pipenv run bash -c "cd ${KATA} && \
