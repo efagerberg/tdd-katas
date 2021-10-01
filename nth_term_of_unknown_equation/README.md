@@ -1,4 +1,4 @@
-Write a function that takes a sequence of numbers and returns a new function that takes an integer and returns the nth element of the sequence.
+Write a function that takes a sequence of numbers and returns nth element of the sequence.
 
 The input sequence could not have n elements, therefore the function returned should be able to derive the pattern of the input.
 
