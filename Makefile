@@ -3,7 +3,7 @@ install:
 
 test:
 	pipenv run bash -c "cd ${KATA} && \
-	pytest -f --ff --cov=. --cov-branch --cov-report=term-missing:skip-covered --cov-report=xml:../cov.xml"
+	pytest -f -vvv --cov=. --cov-branch --cov-report=term-missing:skip-covered --cov-report=xml:../cov.xml"
 
 generate_kata:
 	mkdir ${KATA}

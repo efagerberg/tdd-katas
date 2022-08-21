@@ -7,7 +7,7 @@
 		"context": "..",
 		"args": { 
 			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
-			"VARIANT": "3.9",
+			"VARIANT": "3.10",
 			// Options
 			"NODE_VERSION": "lts/*"
 		}
@@ -18,7 +18,9 @@
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.languageServer": "Pylance",
 		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.linting.mypyEnabled": true,
+		"python.formatting.provider": "black",
 		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
 		"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
 		"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
@@ -33,14 +35,14 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
-		"ms-python.vscode-pylance"
+		"ryanluker.vscode-coverage-gutters"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+	"postCreateCommand": "make install",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
